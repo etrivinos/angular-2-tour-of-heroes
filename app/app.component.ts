@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroesComponent } from './heroes.component';
+import { ROUTER_DIRECTIVES } from '@angular/router';
+
 import { HeroService } from './hero.service';
 
 @Component({
@@ -7,11 +8,12 @@ import { HeroService } from './hero.service';
   template: `
     <h1>{{title}}</h1>
 
-    <my-heroes></my-heroes>
+    <a [routerLink]="['/heroes']">Heroes</a>
+    <router-outlet></router-outlet>
   `,
-  directives: [HeroesComponent],
+  directives: [ROUTER_DIRECTIVES],
   providers: [HeroService]
 })
 export class AppComponent {
-  title: 'Heroes App';
+  title: 'Tour of Heroes';
 }
